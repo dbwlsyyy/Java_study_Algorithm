@@ -6,7 +6,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class A18799
+class A15941
 {
     public static void main(String args[]) throws Exception
     {
@@ -25,45 +25,20 @@ class A18799
         Scanner sc = new Scanner(System.in);
         int T;
         T=sc.nextInt();
+        int[] arr = new int[T];
 		/*
 		   여러 개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 		*/
 
-        for(int test_case = 1; test_case <= T; test_case++) {
-
-            int n = sc.nextInt();
-
-            String num = "";
-            for(int i = 0; i < n; i++){
-                num += sc.next();
-            }
-            StringBuilder sb = new StringBuilder(num.trim());
-            StringBuilder _sb = new StringBuilder(sb);
-
-            for (int j = 0; j < n; j++) {
-                for (int k = j + 1; k <= n; k++) {
-                    if (k <= sb.length()) {
-                        String subNum = sb.substring(j, k);
-                        System.out.println(subNum);
-                    }
-                }
-
-                while (j < _sb.length() - 1) {
-                    _sb.deleteCharAt(j + 1); // 중간 문자 삭제
-                    for (int k = j + 1; k <= n; k++) { // 시작 인덱스 수정
-                        if (k <= _sb.length()) {
-                            String _subNum = _sb.substring(j, k); // 중간 문자가 삭제된 _sb 사용
-                            if(_subNum.length() != 1){
-                                System.out.println(_subNum);
-                            }
-                        }
-                    }
-
-                }
-            }
-
-            //System.out.println("#" + test_case + " " + count);
+        for(int test_case = 1; test_case <= T; test_case++)
+        {
+            int result = 0;
+            int num = sc.nextInt();
+            result = num * num;
+            arr[test_case-1] = result;
         }
-
+        for(int i = 1; i <= T; i++) {
+            System.out.println("#" + i + " " + arr[i-1]);
+        }
     }
 }
